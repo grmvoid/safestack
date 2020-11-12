@@ -1,4 +1,4 @@
-# ChainDB
+# ChainDB ![ChainDB](https://github.com/FFx0q/ChainDB/workflows/ChainDB/badge.svg)
 A database based on blockchain technology.
 
 ## Features

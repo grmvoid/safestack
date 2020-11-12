@@ -27,7 +27,7 @@ export default class Miner {
         return block
     }
 
-    validate(): boolean {
+    isChainValid(): boolean {
         const chain = this.chain.chain
         let index = 1
 
@@ -43,8 +43,7 @@ export default class Miner {
         return true
     }
 
-
-    private isBlockValid(block: Block): boolean {
+    isBlockValid(block: Block): boolean {
         const prevBlock = this.chain.chain[block.id - 1]
         const { hash } = block;
         block.computeHash()

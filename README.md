@@ -4,11 +4,10 @@ A database based on blockchain technology.
 ## Features
 * REST Api
 * Proof of Work Algorithm
-* Validate chain and block
+* Validate chain and blocks
 
 ## TODO
 * Storing data in files
-* Unify api endpoints
 * CI
 * Unit Test
 

@@ -1,4 +1,5 @@
 import Block from './block'
+import fs from 'fs'
 
 export default class Chain {
     private _chain: Array<Block> = [];
@@ -27,5 +28,9 @@ export default class Chain {
 
     getBlock(id: number): Block {
         return this._chain[id]
+    }
+
+    saveData(): void {
+
     }
 }

@@ -1,14 +1,24 @@
 import express from 'express'
-import handler from './handler'
+import routing from './routes'
 import {  Miner } from '../blockchain'
+import logger from '../logger'
 
-export default async (miner: Miner) => {
-    const app = express()
+export default class Api {
+    private readonly miner: Miner
+    private readonly app: express.Application
 
-    app.use(express.json())
-    app.use(express.urlencoded({ extended: false }))
+    constructor(miner: Miner) {
+        this.miner = miner
+        this.app = express()
+    }
 
-    await handler(app, miner)
+    start () {
+        this.app.use(express.json())
+        this.app.use(express.urlencoded({ extended: false }))
 
-    app.listen(8080)
+        routing(this.miner, this.app)
+        this.app.listen(8080)
+
+        logger("Api initialized")
+    }
 }

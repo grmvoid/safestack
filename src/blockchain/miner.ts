@@ -31,21 +31,23 @@ export default class Miner {
         const chain = this.chain.chain
         let index = 1
 
-        if (chain[0].hash === Block.genesis().hash) return true
-        while (index <= chain.length) {
-            console.log(index)
+        if (chain.length > 1) {
+            while (index <= chain.length) {
+                console.log(index)
 
-            let block = this.chain.getBlock(index)
-            if (!this.isBlockValid(block)) return false
+                let block = this.chain.getBlock(index)
+                if (!this.isBlockValid(block)) return false
 
-            index++
+                index++
+            }
         }
-        return true
+
+        return chain[0].id === Block.genesis().id && chain[0].data === Block.genesis().data
     }
 
     isBlockValid(block: Block): boolean {
         const prevBlock = this.chain.chain[block.id - 1]
-        const { hash } = block;
+        const {hash} = block;
         block.computeHash()
 
         if (block.id - 1 !== prevBlock.id) return false
@@ -53,8 +55,9 @@ export default class Miner {
 
         return block.hash === hash;
     }
+
     private generateNewBlock(data: string): Block {
-        const { id, hash: prevHash } = this.chain.getLastBlock()
+        const {id, hash: prevHash} = this.chain.getLastBlock()
         const timestamp = Date.now().toString()
         const block = new Block(id + 1, timestamp, prevHash, data)
 

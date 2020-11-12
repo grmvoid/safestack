@@ -11,5 +11,9 @@ export default (miner: Miner) => {
         res.json({ validate: miner.isChainValid()}).status(200)
     })
 
+    router.get('/chain/init', async(req: Request, res: Response) => {
+        res.json(miner.getChain().init()).status(200)
+    })
+
     return router
 }

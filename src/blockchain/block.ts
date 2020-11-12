@@ -19,7 +19,7 @@ export default class Block {
     }
 
     static genesis (): Block {
-        return new this(0, "09/11/2020", "", "Genesis Block");
+        return new this(0, Date.now().toString(), "", "Genesis Block");
     }
 
     computeHash(): string {

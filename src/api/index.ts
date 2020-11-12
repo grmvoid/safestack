@@ -1,7 +1,8 @@
 import express from 'express'
-import routing from './routes'
 import {  Miner } from '../blockchain'
 import logger from '../logger'
+import config from '../config'
+import routing from './routes'
 
 export default class Api {
     private readonly miner: Miner
@@ -17,7 +18,7 @@ export default class Api {
         this.app.use(express.urlencoded({ extended: false }))
 
         routing(this.miner, this.app)
-        this.app.listen(8080)
+        this.app.listen(config.port)
 
         logger("Api initialized")
     }

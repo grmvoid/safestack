@@ -4,12 +4,27 @@ A database based on blockchain technology.
 ## Features
 * REST Api
 * Proof of Work Algorithm
-* Validate chain and blocks
+* Validate the chain and blocks
+* Storage blocks in files
 
-## TODO
-* Storing data in files
-* CI
-* Unit Test
+## API Endpoints
+    GET /chain
+Get all blocks from chain.
+
+    GET /chain/init
+Initialize a database.
+
+    GET /chain/validate
+Check validity of chain.
+
+    POST /block
+Add a new block to chain. All data a stored as string.
+    
+    GET /block/:id
+Get block by id.
+
+    GET /block/:id/validate
+Checking the correctness of the block with the given id
 
 ## Setup
 Clone this repo to your desktop and run npm install to install all the dependencies.

@@ -28,6 +28,28 @@ export default class Chain {
         return this._chain[this._chain.length - 1]
     }
 
+    validateChain (): boolean {
+        let id = 1;
+
+        if (this.chain.length > 1) {
+            while ( id <= this._chain.length ) {
+                let block = this._chain[id]
+                let prevBlock = this.chain[id - 1]
+
+                const {hash} = block
+                block.computeHash()
+
+                if (block.id - 1 !== prevBlock.id) return false
+                if (block.prevHash !== block.hash) return false
+                if (block.hash !== hash) return false
+
+                id++;
+            } 
+        }
+
+        return this._chain[0].id === Block.genesis().id && this._chain[0].data === Block.genesis().data
+    }
+
     saveBlock (block: Block): void {
         this._chain.push(block)
 

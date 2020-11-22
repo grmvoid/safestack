@@ -46,4 +46,8 @@ export default class ChainDB {
     insert (key: string, value: string): Block {
         return this._miner.mine(key, value)
     }
+
+    validate (): boolean {
+        return this._chain.validateChain()
+    }
 }

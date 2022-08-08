@@ -31,4 +31,8 @@ export class Block {
       )
       .digest("hex");
   }
+
+  static genesis(): Block {
+    return new Block(0, Date.now().toString(), "", {});
+  }
 }

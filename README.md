@@ -28,11 +28,15 @@ Constructor for ChainDB class.
 
 Initializes connection to database.
 
-    find(key: string): Array<Block>
+    find(): Array<Block>
 
-Returns specfied blocks by key in chain.
+Returns all blocks from chain
 
     findOne(index: number): Block
+
+Return one block by specified index from chain
+
+    insert(data: object): Block
 
 Saves the new block and returns it.
 

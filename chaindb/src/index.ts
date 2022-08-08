@@ -32,7 +32,7 @@ export class ChainDB {
       this._chain.loadBlocks();
     } catch (error: any) {
       if (error.code === "ENOENT") {
-        //this._chain.saveBlock(Block.genesis());
+        this._chain.saveBlock(Block.genesis());
       }
     }
   }
@@ -43,5 +43,18 @@ export class ChainDB {
 
   findOne(index: number) {
     return this._chain.getBlock(index);
+  }
+
+  insert(data: object): Block {
+    const previousBlock = this._chain.getLastBlock();
+    const block = this._miner.mine(previousBlock, data);
+
+    this._chain.saveBlock(block);
+
+    return block;
+  }
+
+  validate(): boolean {
+    return this._chain.validateChain();
   }
 }

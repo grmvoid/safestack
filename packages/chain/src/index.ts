@@ -43,6 +43,28 @@ export class Chain {
     ).catch((error) => logger.error(error));
   }
 
+  public validateChain(): boolean {
+    let id = 1;
+
+    if (this.chain.length > 1) {
+      while (id <= this._chain.length) {
+        let block = this._chain[id];
+        let prevBlock = this._chain[id - 1];
+
+        const { hash } = block;
+        block.computeHash();
+
+        if (block.index - 1 !== prevBlock.index) return false;
+        if (block.previousHash !== block.hash) return false;
+        if (block.hash !== hash) return false;
+
+        id++;
+      }
+    }
+
+    return true;
+  }
+
   public loadBlocks(): void {
     try {
       const files = readdirSync(this._path, "utf-8");

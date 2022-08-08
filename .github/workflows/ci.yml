@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versions: [14.x, 15.x]
+        node-versions: [18.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Remove existing TypeScript
-        run: npm uninstall typescript --no-save
-      - run: npm ci
+      - name: Install deps
+        run: yarn install
+      - name: Build Project
+        run: yarn build

@@ -18,6 +18,15 @@ Clone this repo to your desktop and run npm install to install all the dependenc
     console.log(blocks);
 ```
 
+## ToDo
+
+- [] Setup ESLint / Prettier
+- [] Prepare CI for Yarn Workspaces (Monorep)
+- [] Make better docs / JSDocs
+- [] P2P Network
+- [] Implement Consensus algorithm
+- [] Make Unit Tests for all packages
+
 ## API Reference
 
     ChainDB(dbName: string, difficult: number): ChainDB

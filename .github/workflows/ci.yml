@@ -17,13 +17,14 @@ jobs:
         node-versions: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 5
+          fetch-depth: 0
       - name: Use node version ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "yarn"
       - name: Install deps
         run: yarn install
       - name: Build Project

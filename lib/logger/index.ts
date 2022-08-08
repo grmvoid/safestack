@@ -1,1 +1,0 @@
-export default (msg: string) => process.stdout.write(`[ChainDb] ${msg} \n`)

@@ -1,0 +1,16 @@
+{
+  "name": "@chaindb/core",
+  "version": "0.1.0",
+  "main": ".dist/index.js",
+  "types": ".dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -b -w"
+  },
+  "dependencies": {
+    "@chaindb/block": "workspace:*",
+    "@chaindb/chain": "workspace:*",
+    "@chaindb/config": "workspace:*",
+    "@chaindb/miner": "workspace:*"
+  }
+}

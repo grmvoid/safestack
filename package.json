@@ -1,18 +1,19 @@
 {
-  "name": "blockchain",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc"
-  },
-  "engines": {
-    "node": ">= 18"
-  },
-  "author": "Dominik Szamburski",
+  "name": "chaindb",
+  "version": "0.2.0",
+  "private": true,
   "license": "MIT",
+  "scripts": {
+    "build": "yarn workspaces foreach -tvp run build",
+    "watch": "yarn workspaces foreach -p run watch",
+    "start": "yarn workspace @chaindb/main start"
+  },
+  "workspaces": [
+    "chaindb",
+    "packages/*"
+  ],
   "devDependencies": {
-    "@types/node": "^14.6.0",
-    "typescript": "^4.0.2"
+    "@types/node": "^18.6.4",
+    "typescript": "^4.7.4"
   }
 }

@@ -20,7 +20,7 @@ Clone this repo to your desktop and run npm install to install all the dependenc
 
 ## ToDo
 
-- [] Setup ESLint / Prettier
+- [x] Setup ESLint / Prettier
 - [] Prepare CI for Yarn Workspaces (Monorep)
 - [] Make better docs / JSDocs
 - [] P2P Network

@@ -1,4 +1,4 @@
-import { createHash } from "crypto";
+import { createHash } from 'crypto';
 
 export class Block {
   public index: number;
@@ -8,12 +8,7 @@ export class Block {
   public nonce: number;
   public txs: object;
 
-  constructor(
-    index: number,
-    timestamp: string,
-    previousHash: string,
-    data: object
-  ) {
+  constructor(index: number, timestamp: string, previousHash: string, data: object) {
     this.index = index;
     this.timestamp = timestamp;
     this.previousHash = previousHash;
@@ -25,14 +20,12 @@ export class Block {
   computeHash(): string {
     const stringify = JSON.stringify(this.txs);
 
-    return createHash("sha256")
-      .update(
-        `${this.index}${this.timestamp}${this.previousHash}${this.nonce}${stringify}`
-      )
-      .digest("hex");
+    return createHash('sha256')
+      .update(`${this.index}${this.timestamp}${this.previousHash}${this.nonce}${stringify}`)
+      .digest('hex');
   }
 
   static genesis(): Block {
-    return new Block(0, Date.now().toString(), "", {});
+    return new Block(0, Date.now().toString(), '', {});
   }
 }

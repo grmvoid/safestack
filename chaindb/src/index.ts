@@ -1,9 +1,9 @@
-import { mkdirSync, openSync } from "fs";
-import { normalize } from "path";
-import { Block } from "@chaindb/block";
-import { Chain } from "@chaindb/chain";
-import { Miner } from "@chaindb/miner";
-import { Config } from "@chaindb/config";
+import { mkdirSync, openSync } from 'fs';
+import { normalize } from 'path';
+import { Block } from '@chaindb/block';
+import { Chain } from '@chaindb/chain';
+import { Miner } from '@chaindb/miner';
+import { Config } from '@chaindb/config';
 
 export class ChainDB {
   private _chain: Chain;
@@ -18,7 +18,7 @@ export class ChainDB {
     try {
       mkdirSync(`${Config.Path.data}/${database}`, { recursive: true });
     } catch (error: any) {
-      if (error.code === "EEXISTS") {
+      if (error.code === 'EEXISTS') {
         return;
       }
     }
@@ -28,10 +28,10 @@ export class ChainDB {
     const p = normalize(`${Config.Path.data}/${this._database}/0`);
 
     try {
-      openSync(p, "r");
+      openSync(p, 'r');
       this._chain.loadBlocks();
     } catch (error: any) {
-      if (error.code === "ENOENT") {
+      if (error.code === 'ENOENT') {
         this._chain.saveBlock(Block.genesis());
       }
     }

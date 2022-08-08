@@ -1,10 +1,10 @@
-import path from "path";
-import { readdirSync, openSync, readFileSync } from "fs";
-import { writeFile } from "fs/promises";
+import path from 'path';
+import { readdirSync, openSync, readFileSync } from 'fs';
+import { writeFile } from 'fs/promises';
 
-import logger from "@chaindb/logger";
-import { Config } from "@chaindb/config";
-import { Block } from "@chaindb/block";
+import logger from '@chaindb/logger';
+import { Config } from '@chaindb/config';
+import { Block } from '@chaindb/block';
 
 export class Chain {
   private readonly _chain: Array<Block> = [];
@@ -37,10 +37,9 @@ export class Chain {
   public saveBlock(block: Block): void {
     this._chain.push(block);
 
-    writeFile(
-      path.normalize(`${this._path}/${block.index}`),
-      JSON.stringify(block)
-    ).catch((error) => logger.error(error));
+    writeFile(path.normalize(`${this._path}/${block.index}`), JSON.stringify(block)).catch((error) =>
+      logger.error(error)
+    );
   }
 
   public validateChain(): boolean {
@@ -67,12 +66,12 @@ export class Chain {
 
   public loadBlocks(): void {
     try {
-      const files = readdirSync(this._path, "utf-8");
+      const files = readdirSync(this._path, 'utf-8');
 
       files.forEach((file) => {
         try {
-          const fd = openSync(path.normalize(`${this._path}/${file}`), "r");
-          const data = readFileSync(fd, "utf-8");
+          const fd = openSync(path.normalize(`${this._path}/${file}`), 'r');
+          const data = readFileSync(fd, 'utf-8');
 
           this._chain.push(JSON.parse(data));
         } catch (exception) {

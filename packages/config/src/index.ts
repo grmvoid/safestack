@@ -1,7 +1,7 @@
-import path from "path";
+import path from 'path';
 
 export const Config = {
   Path: {
-    data: path.normalize("data/"),
-  },
+    data: path.normalize('data/')
+  }
 };

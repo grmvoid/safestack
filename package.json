@@ -8,7 +8,9 @@
     "build": "npm run clean && tsc",
     "start": "node safestack",
     "local": "ts-node safestack",
-    "local:watch": "nodemon safestack -e ts,json --exec ts-node safestack"
+    "local:watch": "nodemon safestack -e ts,json --exec ts-node safestack",
+    "lint:check": "eslint ./safestack --ext .ts",
+    "lint:fix": "prettier --config prettierrc.json --write safestack/**/*.ts"
   },
   "devDependencies": {
     "@types/node": "^20.3.0",

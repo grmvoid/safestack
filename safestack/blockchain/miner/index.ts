@@ -1,4 +1,4 @@
-import { default as Block } from '../block'
+import Block from '../block';
 import { logger } from '../../utils';
 
 export default class Miner {
@@ -10,17 +10,12 @@ export default class Miner {
 
   public mine(previousBlock: Block, data: object): Block {
     const { index, hash: previousHash } = previousBlock;
-    const block = new Block(
-      index + 1,
-      Date.now().toString(),
-      previousHash,
-      data
-    );
+    const block = new Block(index + 1, Date.now().toString(), previousHash, data);
 
     do {
       block.nonce++;
       block.hash = block.computeHash();
-    } while (block.hash.substring(0, this._difficult) != "0".repeat(this._difficult));
+    } while (block.hash.substring(0, this._difficult) !== '0'.repeat(this._difficult));
 
     logger.info(`Block with hash: ${block.hash} was mining.`);
 

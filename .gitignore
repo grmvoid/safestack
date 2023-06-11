@@ -3,6 +3,7 @@
 node_modules/
 data/
 .dist/
+build/
 
 .yarn/*
 !.yarn/releases

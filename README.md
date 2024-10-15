@@ -1,4 +1,4 @@
-# ChainDB ![ChainDB](https://github.com/macotsuu/ChainDB/workflows/ChainDB/badge.svg)
+# ChainDB
 
 ChainDB is a database that saves data in files and memory. It is based on blockchain technology, so the data is immutable and any change in the data causes chain disturbances and data corruption. ChainDB provides only the SDK that we can implement in our project.
 
@@ -21,7 +21,7 @@ Clone this repo to your desktop and run npm install to install all the dependenc
 ## ToDo
 
 - [] Setup ESLint / Prettier
-- [] Prepare CI for Yarn Workspaces (Monorep)
+- [] Prepare CI for Yarn Workspaces (Monorepo)
 - [] Make better docs / JSDocs
 - [] P2P Network
 - [] Implement Consensus algorithm

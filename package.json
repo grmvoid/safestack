@@ -1,16 +1,16 @@
 {
-  "name": "safestack",
+  "name": "chainvault",
   "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "scripts": {
     "clean": "rimraf ./build",
     "build": "npm run clean && tsc",
-    "start": "node safestack",
-    "local": "ts-node safestack",
-    "local:watch": "nodemon safestack -e ts,json --exec ts-node safestack",
-    "lint:check": "eslint ./safestack --ext .ts",
-    "lint:fix": "prettier --config prettierrc.json --write safestack/**/*.ts"
+    "start": "node chainvault",
+    "local": "ts-node chainvault",
+    "local:watch": "nodemon chainvault -e ts,json --exec ts-node chainvault",
+    "lint:check": "eslint ./chainvault --ext .ts",
+    "lint:fix": "prettier --config prettierrc.json --write chainvault/**/*.ts"
   },
   "devDependencies": {
     "@types/node": "^20.16.10",

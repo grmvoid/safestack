@@ -1,6 +1,6 @@
-# ChainDB
+# ChainVault
 
-ChainDB is a database that saves data in files and memory. It is based on blockchain technology, so the data is immutable and any change in the data causes chain disturbances and data corruption. ChainDB provides only the SDK that we can implement in our project.
+ChainVault is a database that saves data in files and memory. It is based on blockchain technology, so the data is immutable and any change in the data causes chain disturbances and data corruption. ChainVault provides only the SDK that we can implement in our project.
 
 ## Setup
 
@@ -9,9 +9,9 @@ Clone this repo to your desktop and run npm install to install all the dependenc
 ## Example
 
 ```
-    import ChainDB from 'chaindb'
+    import ChainVault from 'chainvault'
 
-    const db = new ChainDB('db', 4)
+    const db = new ChainVault('db', 4)
     db.initialize()
 
     const blocks = db.find();
@@ -29,9 +29,9 @@ Clone this repo to your desktop and run npm install to install all the dependenc
 
 ## API Reference
 
-    ChainDB(dbName: string, difficult: number): ChainDB
+    ChainVault(dbName: string, difficult: number): ChainVault
 
-Constructor for ChainDB class.
+Constructor for ChainVault class.
 
     initialize(): void
 
@@ -55,4 +55,4 @@ Check validates of chain.
 
 ## License
 
-ChainDB is licensed under the MIT - see the [LICENSE](LICENSE) file for details.
+ChainVault is licensed under the MIT - see the [LICENSE](LICENSE) file for details.
